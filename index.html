@@ -3,127 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Web Responsive Completa</title>
+    <title>Compartir tu Ubicación con Richard BPN por WhatsApp</title>
     <style>
-        /* Estilos generales */
+        /* Estilos generales para el cuerpo de la página */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif; /* Usando la fuente Inter */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
+            background-color: #f0f2f5; /* Un color de fondo suave */
+            color: #333;
         }
 
+        /* Contenedor principal para el contenido */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .hero {
             text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px; /* Esquinas más redondeadas */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+            max-width: 400px;
+            width: 90%; /* Ancho fluido para responsividad */
+            box-sizing: border-box; /* Incluye padding y border en el ancho total */
         }
 
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        /* Estilos para el título */
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
         }
 
-        .feature {
-            width: 30%;
-            padding: 20px;
+        /* Estilos para los párrafos */
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 25px;
         }
 
-        .testimonials {
-            text-align: center;
+        /* Estilos para el botón */
+        button {
+            background-color: #25d366; /* Color de WhatsApp */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px; /* Esquinas redondeadas para el botón */
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
         }
 
-        /* Estilos para pantallas pequeñas (móviles) */
-        @media (max-width: 768px) {
-            header nav ul {
-                flex-direction: column;
-                text-align: center;
+        button:hover {
+            background-color: #1da851; /* Color más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Pequeño efecto de elevación */
+        }
+
+        button:active {
+            transform: translateY(0); /* Vuelve a la posición original al hacer clic */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para el mensaje de estado */
+        #status {
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #555;
+            min-height: 20px; /* Para evitar CLS cuando el texto aparece */
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
             }
-            .feature {
-                width: 100%;
+            h1 {
+                font-size: 1.5em;
+            }
+            button {
+                padding: 12px 25px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Bienvenido a mi sitio web</h1>
-            <p>Este es un ejemplo de una página web responsive.</p>
-            <button>Más información</button>
-        </section>
-
-        <section class="features">
-            <h2>Nuestras características</h2>
-            <div class="feature">
-                <img src="feature1.jpg" alt="Característica 1">
-                <h3>Característica 1</h3>
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            </section>
-
-        <section class="testimonials">
-            <h2>Testimonios</h2>
-            <div class="testimonial">
-                <p>"Lorem ipsum dolor sit amet."</p>
-                <p>- Juan Pérez</p>
-            </div>
-            </section>
-
-
-
-<section class="hero1">
-            <h1>Bienvenido a mi sitio web1</h1>
-            <p>Este es un ejemplo de una página web responsive1.</p>
-            <button>Más información</button>
-        </section>
-
-        <section class="features1">
-            <h2>Nuestras características1</h2>
-            <div class="feature">
-                <img src="feature1.jpg" alt="Característica 1">
-                <h3>Característica 1</h3>
-                <p>Lorem ipsum dolor sit amet.1</p>
-            </div>
-            </section>
-
-        <section class="testimonials1">
-            <h2>Testimonios</h2>
-            <div class="testimonial">
-                <p>"Lorem ipsum dolor sit amet1."</p>
-                <p>- Juan Pérez</p>
-            </div>
-            </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Mi Sitio Web</p>
-    </footer>
+    <div class="container">
+        <h1>Compartir mi ubicación</h1>
+        <p>Presiona el botón para compartir tu ubicación actual a través de WhatsApp con el contacto especificado.</p>
+        <button id="shareLocationBtn">Compartir Ubicación</button>
+        <p id="status"></p>
+    </div>
 
     <script>
-        // Aquí puedes agregar código JavaScript para funcionalidades interactivas
-        console.log("¡Hola desde JavaScript!");
+        // Añadir un event listener al botón cuando el DOM esté completamente cargado
+        document.getElementById('shareLocationBtn').addEventListener('click', function() {
+            const statusElement = document.getElementById('status');
+            statusElement.textContent = 'Obteniendo ubicación...'; // Mensaje de carga
+
+            // Verificar si el navegador soporta la API de geolocalización
+            if (navigator.geolocation) {
+                // Obtener la posición actual del usuario
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Callback de éxito: la ubicación ha sido obtenida
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const whatsappNumber = '5492996261884'; // Número de WhatsApp del contacto
+
+                        // Crear el mensaje con las coordenadas y un enlace a Google Maps
+                        const message = `¡Hola! Esta es mi ubicación actual: Latitud ${latitude}, Longitud ${longitude}. Puedes verla aquí: https://www.google.com/maps?q=${latitude},${longitude}`;
+
+                        // Codificar el mensaje para que sea seguro en una URL
+                        const encodedMessage = encodeURIComponent(message);
+
+                        // Construir el enlace de WhatsApp
+                        // wa.me es el dominio oficial para enlaces de clic para chatear de WhatsApp
+                        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                        // Abrir el enlace de WhatsApp en una nueva pestaña/ventana
+                        window.open(whatsappLink, '_blank');
+                        statusElement.textContent = 'Ubicación obtenida y compartiendo por WhatsApp.';
+                    },
+                    (error) => {
+                        // Callback de error: no se pudo obtener la ubicación
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                statusElement.textContent = 'Permiso denegado para acceder a la ubicación. Por favor, habilita los permisos de ubicación en tu navegador.';
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                statusElement.textContent = 'Información de ubicación no disponible.';
+                                break;
+                            case error.TIMEOUT:
+                                statusElement.textContent = 'Tiempo de espera agotado al intentar obtener la ubicación.';
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                statusElement.textContent = 'Ocurrió un error desconocido al obtener la ubicación.';
+                                break;
+                        }
+                    },
+                    {
+                        // Opciones para getCurrentPosition
+                        enableHighAccuracy: true, // Solicita la mejor precisión posible
+                        timeout: 10000,          // Tiempo máximo para obtener la ubicación (10 segundos)
+                        maximumAge: 0            // No usar una ubicación en caché, siempre obtener una nueva
+                    }
+                );
+            } else {
+                // El navegador no soporta la geolocalización
+                statusElement.textContent = 'Tu navegador no soporta la geolocalización.';
+            }
+        });
     </script>
 </body>
 </html>
